@@ -1,105 +1,85 @@
-[![Shipping files](https://github.com/neuefische/ds-eda-project-template/actions/workflows/workflow-03.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/neuefische/ds-eda-project-template/actions/workflows/workflow-03.yml)
-# ds-project-template
-
-Template for creating ds simple projects
+# ds-project
 
 ## Requirements
 
 - pyenv
 - python==3.11.3
 
-## Setup
+# Data
 
-One of the first steps when starting any data science project is to create a virtual environment. For this project you have to create this environment from scratch yourself. However, you should be already familiar with the commands you will need to do so. The general workflow consists of... 
+King_County_House_prices_dataset
 
-* setting the python version locally to 3.11.3
-* creating a virtual environment using the `venv` module
-* activating your newly created environment 
-* upgrading `pip` (This step is not absolutely necessary, but will save you trouble when installing some packages.)
-* installing the required packages via `pip`
+# Goals
 
-At the end, you want to make sure that people who are interested in your project can create an identical environment on their own computer in order to be able to run your code without running into errors. Therefore you can create a `requirements file` and add it to your repository. You can create such a file by running the following command: 
+## Hypothesis
 
-```bash
-pip freeze > requirements.txt
-```
+### Client
 
-*Note: In rare case such a requirements file created with `pip freeze` might not ensure that another (especially M1 chip) user can install and execute it properly. This can happen if libraries need to be compiled (e.g. SciPy). Then it also depends on environment variables and the actual system libraries.*
+| Timothy Stevens | Seller | Owns expensive houses in the center, needs to get rid, best timing within a year, open for renovation when profits rise |
+| --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
 
-### Unit testing (Optional)
+### Question and Hypothesis
 
-If you write python scripts for your data processing methods, you can also write unit tests. In order to run the tests execute in terminal:
+| Questions                                                                                                          | Hytothesis                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| When is the best time within the year to sell expensive houses in the city center for the highest possible profit? | 1 - House prices in the city center peak during the spring and summer months due to increased demand.\*                      |
+|                                                                                                                    | 2- During holiday seasons (like Thanksgiving or Christmas) Houses sell for lower prices because of reduced buyer activity.\* |
+|                                                                                                                    | Many houses are sold in March.\*                                                                                             |
+| How does the potential for renovation impact the selling price for expensive houses in the center?                 | 3- Renovated houses sell for a significantly higher price compared to similar houses without renovation.\*                   |
+| How does the potential for renovation impact the selling time to generate best prices                              | Houses that need renovation sell better early in the year, not during winter                                                 |
 
-```bash
-pytest
-```
+'\* Hypothesis that needs to be discussed, the rest is optional
 
-This command will execute all the functions in your project that start with the word **test**.
+# Plots
 
-## Set up your Environment
-This repo contains a requirements.txt file with a list of all the packages and dependencies you will need.
+## random plots do check data
 
-Before you can start with plotly in Jupyter Lab you have to install node.js (if you haven't done it before).
-- Check **Node version**  by run the following commands:
-    ```sh
-    node -v
-    ```
-    If you haven't installed it yet, begin at `step_1`. Otherwise, proceed to `step_2`.
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
+![alt text](image-4.png)
 
-### **`macOS`** type the following commands : 
+## Hypothesis
 
+### 1 - House prices in the city center peak during the spring and summer months due to increased demand.
 
-- `Step_1:` Update Homebrew and install Node by following commands:
-    ```sh
-    brew update
-    brew install node
-    ```
+![alt text](image-5.png)
+![alt text](image-6.png)
 
-- `Step_2:` Install the virtual environment and the required packages by following commands:
+### 2 - During holiday seasons (like Thanksgiving or Christmas) Houses sell for lower prices because of reduced buyer activity.
 
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-### **`WindowsOS`** type the following commands :
+![alt text](image-7.png)
 
+### 3 - Many houses are sold in March.
 
-- `Step_1:` Update Chocolatey and install Node by following commands:
-    ```sh
-    choco upgrade chocolatey
-    choco install nodejs
-    ```
+![alt text](image-8.png)
 
-- `Step_2:` Install the virtual environment and the required packages by following commands.
+### 4 - Renovated houses sell for a significantly higher price compared to similar houses without renovation.
 
-   For `PowerShell` CLI :
+![alt text](image-9.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+![alt text](image-15.png)
 
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
+## graphical plots
 
-    For `Git-Bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
- 
+![alt text](image-10.png)
+![alt text](image-11.png)
 
- **`Note:`**
-    If you encounter an error when trying to run `pip install --upgrade pip`, try using the following command:
+# recommendations for client
 
-   ```Bash
-   python.exe -m pip install --upgrade pip
-   ```
+good month to sell are July, September, December, March and April for the city center
+
+unti August many houses get sold
+List them now if you want to sell fast
+
+After renovation you can expect up to a 24% higher price
+Depending on amount bedrooms and size and price expectations
+for smaller appartments, renovation is not reccomended
+
+If you want to renovate:
+After August, prices migth drop , also less houses get sold
+If you dont sell the houses to the desired price until August, start renovationimediately
